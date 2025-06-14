@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title if title else "Sistem Rekomendasi Toko" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" method="post">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Selamat Datang!</h2>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">🏪 Rekomendasi Pasar</a></li>
+                    <li><a href="{{ url_for('harga_sembako') }}">💰 Harga Sembako</a></li>
+                    <li><a href="{{ url_for('how_it_works') }}">❓ How It Works</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>

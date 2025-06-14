@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Rekomendasi Pasar Terdekat</h1>
+
+<form method="POST" action="{{ url_for('rekomendasi') }}" class="recommend-form">
+    <label for="rumah">Pilih Rumah:</label>
+    <select id="rumah" name="rumah" required>
+        {% for nama_rumah in rumah_list %}
+        <option value="{{ nama_rumah }}">{{ nama_rumah }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="barang">Barang yang Dicari:</label>
+    <input type="text" id="barang" name="barang" placeholder="contoh: beras" required>
+
+    <button type="submit">Cari Rekomendasi</button>
+    <footer>© 2025 PilihToko. Dibuat oleh Shafwan Abhinaya</footer>
+</form>
+{% endblock %}

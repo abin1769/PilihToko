@@ -1,0 +1,156 @@
+{
+  "Toko 1": {
+    "lokasi": [5, 2],
+    "rating": 4.5,
+    "stok": {
+      "beras": 20,
+      "gula": 15,
+      "minyak": 10,
+      "tepung": 25,
+      "garam": 12,
+      "kecap": 5,
+      "saos": 13,
+      "telur":2
+    }
+  },
+  "Toko 2": {
+    "lokasi": [11, 10],
+    "rating": 4.0,
+    "stok": {
+      "beras": 0,
+      "gula": 2,
+      "minyak": 5,
+      "tepung": 10,
+      "garam": 6,
+      "kecap": 2,
+      "saos": 6,
+      "telur":0
+    }
+  },
+  "Toko 3": {
+    "lokasi": [11, 17],
+    "rating": 3.2,
+    "stok": {
+      "beras": 12,
+      "gula": 6,
+      "minyak": 10,
+      "tepung": 2,
+      "garam": 8,
+      "kecap": 13,
+      "saos": 11,
+      "telur":16
+    }
+  },
+  "Toko 4": {
+    "lokasi": [14, 5],
+    "rating": 4.8,
+    "stok": {
+      "beras": 11,
+      "gula": 20,
+      "minyak": 14,
+      "tepung": 25,
+      "garam": 1,
+      "kecap": 4,
+      "saos": 12,
+      "telur":20
+    }
+  },
+  "Toko 5": {
+    "lokasi": [21, 2],
+    "rating": 3.6,
+    "stok": {
+      "beras": 10,
+      "gula": 10,
+      "minyak": 16,
+      "tepung": 20,
+      "garam": 1,
+      "kecap": 12,
+      "saos": 14,
+      "telur":20
+    }
+  },
+   "Toko 6": {
+    "lokasi": [29, 2],
+    "rating": 3.6,
+    "stok": {
+      "beras": 1,
+      "gula": 12,
+      "minyak": 6,
+      "tepung": 23,
+      "garam": 13,
+      "kecap": 10,
+      "saos": 24,
+      "telur":21
+    }
+  },
+   "Toko 7": {
+    "lokasi": [29, 9],
+    "rating": 3.6,
+    "stok": {
+      "beras": 16,
+      "gula": 6,
+      "minyak": 26,
+      "tepung": 24,
+      "garam": 12,
+      "kecap": 14,
+      "saos": 24,
+      "telur":21
+    }
+  },
+   "Toko 8": {
+    "lokasi": [32, 6],
+    "rating": 3.6,
+    "stok": {
+      "beras": 12,
+      "gula": 9,
+      "minyak": 8,
+      "tepung": 21,
+      "garam": 16,
+      "kecap": 10,
+      "saos": 23,
+      "telur":21
+    }
+  },
+   "Toko 9": {
+    "lokasi": [35, 13],
+    "rating": 3.6,
+    "stok": {
+      "beras": 1,
+      "gula": 18,
+      "minyak": 26,
+      "tepung": 21,
+      "garam": 12,
+      "kecap": 10,
+      "saos": 24,
+      "telur":21
+    }
+  },
+   "Toko 10": {
+    "lokasi": [36, 1],
+    "rating": 3.6,
+    "stok": {
+      "beras": 21,
+      "gula": 13,
+      "minyak": 1,
+      "tepung": 16,
+      "garam": 12,
+      "kecap": 15,
+      "saos": 17,
+      "telur":23
+    }
+  },
+   "Toko 11": {
+    "lokasi": [37, 13],
+    "rating": 3.6,
+    "stok": {
+      "beras": 10,
+      "gula": 10,
+      "minyak": 16,
+      "tepung": 20,
+      "garam": 1,
+      "kecap": 12,
+      "saos": 14,
+      "telur":20
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Hasil Rekomendasi untuk '{{ barang }}'</h1>
+
+{% if hasil %}
+    {% for toko in hasil %}
+        <div class="result-card">
+            <h3>{{ toko.nama }}</h3>
+            <p>Skor: {{ toko.skor }}</p>
+            <p>Jarak: {{ toko.jarak }}</p>
+            <p>Rating: {{ toko.rating }}</p>
+            <p>Stok: {{ toko.stok }}</p>
+            <p>Alasan: {{ toko.alasan }}</p>
+            <p>Jalur: {{ toko.jalur }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>Tidak ditemukan toko dengan stok '{{ barang }}'.</p>
+{% endif %}
+{% endblock %}

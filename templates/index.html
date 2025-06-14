@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Pilih Toko Terbaik</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" method="post">
+</head>
+<body>
+    <div class="container">
+        <h1>Pilih Toko Terbaik</h1>
+        <form action="{{ url_for('rekomendasi') }}" method="post">
+            <label for="barang">Nama Barang</label>
+            <input type="text" id="barang" name="barang" placeholder="Contoh: beras" required>
+
+            <label for="rumah">Pilih Rumah</label>
+            <select id="rumah" name="rumah" required>
+                {% for nama in rumah %}
+                    <option value="{{ nama }}">{{ nama }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Lihat Rekomendasi</button>
+        </form>
+    </div>
+    <footer>© 2025 PilihToko. Dibuat oleh Wan 🚀</footer>
+</body>
+</html>
