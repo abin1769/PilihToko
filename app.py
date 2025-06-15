@@ -12,6 +12,7 @@ app = Flask(__name__)
 # Load data rumah & toko
 rumah = load_data('data/rumah.json')
 toko = load_data('data/toko.json')
+barang_list = list(toko['Toko 1']['stok'].keys())
 
 # Grid jalan
 grid = [
@@ -39,7 +40,7 @@ grid = [
 
 @app.route('/')
 def home():
-    return render_template('home.html', rumah_list=rumah.keys(), title="Rekomendasi Pasar")
+    return render_template('home.html', rumah_list=rumah.keys(), barang_list=toko.keys(), title="Rekomendasi Pasar")
 
 @app.route('/rekomendasi', methods=['POST'])
 def rekomendasi():
