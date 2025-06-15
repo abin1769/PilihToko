@@ -86,4 +86,5 @@ def how_it_works():
     return render_template('how_it_works.html', title="Cara Kerja")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+
