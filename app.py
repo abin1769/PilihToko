@@ -12,7 +12,7 @@ app = Flask(__name__)
 # Load data rumah & toko
 rumah = load_data('data/rumah.json')
 toko = load_data('data/toko.json')
-barang_list = list(toko['Toko 1']['stok'].keys())
+barang_list = list(toko['stok'].keys())
 
 # Grid jalan
 grid = [
