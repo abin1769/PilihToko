@@ -12,7 +12,11 @@
     </select>
 
     <label for="barang">Barang yang Dicari:</label>
-    <input type="text" id="barang" name="barang" placeholder="contoh: beras" required>
+    <select id="barang" name="barang" required>
+        {% for barang in barang_list %}
+        <option value="{{ barang }}">{{ barang }}</option>
+        {% endfor %}
+    </select>
 
     <button type="submit">Cari Rekomendasi</button>
     <footer>© 2025 PilihToko. Dibuat oleh Shafwan Abhinaya</footer>
