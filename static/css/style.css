@@ -1,0 +1,443 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f9;
+    color: #334155;
+    line-height: 1.6; /* Tambah sedikit line-height untuk keterbacaan */
+}
+
+/* The Main App Layout Container */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Sidebar Styling --- */
+.sidebar {
+    width: 240px;
+    background-color: #4f46e5; /* Indigo-600 */
+    color: #e0e7ff; /* Indigo-200 */
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    flex-shrink: 0; /* Pastikan sidebar tidak mengecil */
+}
+
+.sidebar-header h2 {
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 32px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #c7d2fe; /* Indigo-300 */
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav li a:hover {
+    background-color: #4338ca; /* Indigo-700 */
+    color: white;
+}
+
+.sidebar-nav li a.active {
+    background-color: #ffffff;
+    color: #4f46e5; /* Indigo-600 */
+    font-weight: 700;
+}
+
+/* --- Main Content Styling --- */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    background-color: #f8fafc; /* Slate-50 */
+    overflow-y: auto; /* Agar konten bisa digulir jika terlalu panjang */
+}
+
+.main-content h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b; /* Slate-800 */
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.main-content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.main-content p {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 1rem;
+    color: #64748b; /* Slate-500 */
+}
+
+/* Form Container Styling */
+.main-form {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* --- Tab Styling (for home page) --- */
+.tab-container {
+    display: flex;
+    border-bottom: 1px solid #e2e8f0; /* Slate-200 */
+    margin-bottom: 24px;
+}
+
+.tab-link {
+    padding: 8px 16px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+    color: #64748b; /* Slate-500 */
+    transition: all 0.2s;
+}
+
+.tab-link:hover {
+    color: #334155; /* Slate-700 */
+}
+
+.tab-link.active {
+    color: #4f46e5; /* Indigo-600 */
+    font-weight: 700;
+    border-bottom-color: #4f46e5;
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Form Elements */
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-top: 16px;
+    color: #334155; /* Slate-700 */
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1; /* Slate-300 */
+    font-size: 1rem;
+    background-color: #fff;
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 24px;
+    background: #4f46e5; /* Indigo-600 */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #4338ca; /* Indigo-700 */
+}
+
+/* --- STYLING UNTUK HASIL REKOMENDASI / TOKO TERDEKAT --- */
+.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.result-item-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer; /* Umumkan bahwa ini clickable */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease;
+    border: 3px solid transparent; /* Border awal transparan */
+}
+
+.result-item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Gaya untuk kartu yang sedang aktif/diklik */
+.result-item-card.active-card {
+    border-color: #4f46e5; /* Warna border sama dengan sidebar */
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.result-item-rank {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #94a3b8; /* Slate-400 */
+}
+
+.result-item-info h3 {
+    margin: 0 0 8px 0;
+    color: #1e293b; /* Slate-800 */
+}
+
+.result-item-info p {
+    margin: 4px 0;
+    color: #64748b; /* Slate-500 */
+}
+
+.info-label {
+    font-weight: 500;
+    color: #475569; /* Slate-600 */
+}
+
+.info-value {
+    font-weight: 700;
+    color: #4f46e5; /* Indigo-600 */
+}
+
+.button-kembali {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 10px 20px;
+    background-color: #e2e8f0; /* Slate-200 */
+    color: #475569; /* Slate-600 */
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.button-kembali:hover {
+    background-color: #cbd5e1; /* Slate-300 */
+    color: #1e293b; /* Slate-800 */
+}
+
+/* --- VISUALISASI PETA (untuk rekomendasi & terdekat) --- */
+.visual-wrapper-hidden {
+    display: none;
+}
+
+#route-visual-wrapper {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: all 0.3s ease;
+}
+
+#route-visual-wrapper h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #1e293b;
+}
+
+/* --- CONTROLS & VISUALISASI UMUM (untuk how_it_works) --- */
+.controls-container {
+    display: flex;
+    gap: 24px;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    flex-wrap: wrap; /* Agar responsif pada layar kecil */
+}
+
+.controls-container > div {
+    flex-grow: 1;
+}
+
+.visual-wrapper {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    margin-bottom: 24px; /* Tambah margin bawah agar tidak terlalu mepet tabel */
+}
+
+#dijkstraCanvas {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block; /* Hapus spasi bawah yang tidak perlu dari inline element */
+    margin: 0 auto;
+}
+
+#statusText {
+    margin-top: 16px;
+    font-weight: 500;
+    color: #475569;
+    text-align: center;
+    background-color: #f8fafc;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.separator-line {
+    border: none;
+    border-top: 1px solid #e2e8f0; /* Slate-200 */
+    margin: 40px 0 24px 0;
+}
+
+/* --- Styling untuk Tabel Iterasi Dijkstra (HOW IT WORKS) --- */
+.table-container {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    overflow-x: auto; /* Agar tabel bisa digulir horizontal jika terlalu lebar */
+}
+
+#dijkstraStepsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 0.8em; /* Ukuran font lebih kecil agar muat */
+    min-width: 900px; /* Lebar minimum agar tabel tidak terlalu sempit */
+}
+
+#dijkstraStepsTable th,
+#dijkstraStepsTable td {
+    border: 1px solid #e2e8f0; /* Slate-200 */
+    padding: 6px 4px; /* Kurangi padding agar lebih ringkas */
+    text-align: left;
+    white-space: nowrap; /* Mencegah teks melipat jika terlalu panjang */
+    vertical-align: top; /* Sejajarkan ke atas jika ada wrap */
+}
+
+/* Lebar kolom spesifik untuk kolom utama */
+#dijkstraStepsTable thead th:nth-child(1), /* Iterasi */
+#dijkstraStepsTable tbody td:nth-child(1) {
+    width: 45px;
+    min-width: 45px;
+    text-align: center;
+}
+#dijkstraStepsTable thead th:nth-child(2), /* Unvisited (Q) */
+#dijkstraStepsTable tbody td:nth-child(2) {
+    width: 90px; /* Kurangi lebar */
+    min-width: 90px;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.7em; /* Lebih kecil lagi */
+}
+#dijkstraStepsTable thead th:nth-child(3), /* Visited (S) */
+#dijkstraStepsTable tbody td:nth-child(3) {
+    width: 90px; /* Kurangi lebar */
+    min-width: 90px;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.7em; /* Lebih kecil lagi */
+}
+#dijkstraStepsTable thead th:nth-child(4), /* Current Node (U) */
+#dijkstraStepsTable tbody td:nth-child(4) {
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Kolom header node dinamis */
+#dijkstraStepsTable thead th.node-header {
+    width: 55px; /* Lebar yang lebih konsisten untuk setiap node header */
+    min-width: 55px;
+    text-align: center;
+    vertical-align: bottom;
+    padding-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Kolom cell state node */
+#dijkstraStepsTable tbody td:nth-child(n+5) { /* Mulai dari kolom ke-5 dan seterusnya */
+    width: 55px; /* Sesuaikan dengan lebar header node */
+    min-width: 55px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.7em; /* Sangat kecil untuk konten cell (dist,prev)|iter */
+}
+
+#dijkstraStepsTable thead th {
+    background-color: #f1f5f9; /* Slate-100 */
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#dijkstraStepsTable tbody tr:nth-child(even) {
+    background-color: #f8fafc; /* Slate-50 */
+}
+
+/* Animasi untuk baris yang baru ditambahkan */
+.dijkstra-step-row {
+    animation: fadeInRow 0.3s ease-out;
+}
+
+@keyframes fadeInRow {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Styling untuk sel yang nilainya di-update */
+.updated-node-cell {
+    background-color: #e0f2fe; /* Sky-100 */
+    animation: highlightUpdate 0.5s ease-in-out;
+}
+
+@keyframes highlightUpdate {
+    from { background-color: #e0f2fe; }
+    to { background-color: transparent; }
+}
+
+/* Gulir otomatis tabel */
+#dijkstraStepsTable tbody {
+    max-height: 400px; /* Batasi tinggi agar bisa digulir */
+    overflow-y: auto; /* Aktifkan gulir vertikal */
+    display: block; /* Penting untuk overflow-y bekerja */
+}
+
+#dijkstraStepsTable thead, #dijkstraStepsTable tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* Penting untuk menjaga lebar kolom saat overflow-y */
+}
+
+/* Untuk menyejajarkan header dan body dengan table-layout: fixed */
+#dijkstraStepsTable thead {
+    width: calc(100% - 17px); /* Kurangi lebar scrollbar jika ada */
+}

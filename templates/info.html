@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Tentang Aplikasi</h1>
+    <p>Aplikasi ini dikembangkan untuk memenuhi kebutuhan <strong>Proyek Akhir Mata Kuliah Matematika Diskrit</strong>.</p>
+    
+    <h2>Informasi Proyek</h2>
+    <p>
+        <strong> Program Studi Informatika</strong><br>
+        <strong> Fakultas Sains dan Teknologi</strong><br>
+        <strong> Universitas Jambi</strong>
+    </p>
+
+    <h3>Pengembang:</h3>
+    <ul>
+        <li><strong>Nama:</strong> Shafwan Abhinaya</li>
+        <li><strong>NIM:</strong> F1E324033</li>
+        <li><strong>Angkatan:</strong> 2024</li>
+    </ul>
+
+    <hr class="separator-line">
+
+    <h2>Alat & Desain</h2> {# BAGIAN BARU #}
+    <p>Dalam proses pengembangan aplikasi ini, beberapa alat dan platform kreatif digunakan:</p>
+    <ul>
+        <li><strong>Canva:</strong> Digunakan secara khusus untuk perancangan visual denah/peta yang menjadi latar belakang interaktif dalam simulasi algoritma.</li>
+        <li><strong>Python (Flask):</strong> Sebagai kerangka kerja utama untuk logika backend aplikasi.</li>
+        <li><strong>JavaScript & HTML/CSS:</strong> Untuk membangun antarmuka pengguna yang dinamis dan menarik.</li>
+    </ul>
+
+    <hr class="separator-line">
+
+    <h2>Dukungan Pengembangan AI</h2>
+    <p>Pengerjaan aplikasi ini sangat terbantu oleh kolaborasi dengan model bahasa besar (Large Language Models) dari Google:</p>
+    <ul>
+        <li><strong>Gemini AI 2.5 Flash</strong></li>
+        <li><strong>Gemini AI 2.5 Pro</strong></li>
+    </ul>
+    <p>Model-model AI ini digunakan untuk membantu dalam proses debugging, perbaikan kode, penambahan fitur, dan perancangan struktur aplikasi.</p>
+
+    <a href="{{ url_for('home') }}" class="button-kembali">Kembali ke Beranda</a>
+{% endblock %}

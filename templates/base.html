@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title if title else "Sistem Rekomendasi Toko" }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" method="post">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{{ title }} - PilihToko</title>
 </head>
 <body>
-    <div class="container">
+    <div class="app-layout">
         <aside class="sidebar">
-            <h2>Selamat Datang!</h2>
-            <nav>
+            <div class="sidebar-header">
+                <h2>PilihToko</h2>
+            </div>
+            <nav class="sidebar-nav">
                 <ul>
-                    <li><a href="{{ url_for('home') }}">🏪 Rekomendasi Pasar</a></li>
-                    <li><a href="{{ url_for('harga_sembako') }}">💰 Harga Sembako</a></li>
-                    <li><a href="{{ url_for('how_it_works') }}">❓ How It Works</a></li>
+                    <li><a href="{{ url_for('home') }}" class="{{ 'active' if request.endpoint == 'home' else '' }}">Pencarian</a></li>
+                    <li><a href="{{ url_for('harga_sembako') }}" class="{{ 'active' if request.endpoint == 'harga_sembako' else '' }}">Harga Sembako</a></li>
+                    <li><a href="{{ url_for('how_it_works') }}" class="{{ 'active' if request.endpoint == 'how_it_works' else '' }}">Cara Kerja</a></li>
+                    <li><a href="{{ url_for('about_app') }}" class="{{ 'active' if request.endpoint == 'about_app' else '' }}">Tentang Aplikasi</a></li>
                 </ul>
             </nav>
         </aside>
-        <main class="content">
-            {% block content %}{% endblock %}
+
+        <main class="main-content">
+            {% block content %}
+            {% endblock %}
         </main>
     </div>
+    <script src="{{ url_for('static', filename='js/interactive_map.js') }}"></script>
 </body>
 </html>

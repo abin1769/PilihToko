@@ -1,0 +1,1124 @@
+{
+  "nodes": {
+    "Rumah 1": [
+      2,
+      9
+    ],
+    "Rumah 2": [
+      2,
+      17
+    ],
+    "Rumah 3": [
+      4,
+      6
+    ],
+    "Rumah 4": [
+      9,
+      15
+    ],
+    "Rumah 5": [
+      16,
+      15
+    ],
+    "Rumah 6": [
+      18,
+      2
+    ],
+    "Rumah 7": [
+      20,
+      7
+    ],
+    "Rumah 8": [
+      20,
+      14
+    ],
+    "Rumah 9": [
+      27,
+      15
+    ],
+    "Rumah 10": [
+      28,
+      4
+    ],
+    "Rumah 11": [
+      33,
+      18
+    ],
+    "Rumah 12": [
+      36,
+      4
+    ],
+    "Rumah 13": [
+      37,
+      16
+    ],
+    "Toko 1": [
+      5,
+      2
+    ],
+    "Toko 2": [
+      11,
+      10
+    ],
+    "Toko 3": [
+      11,
+      17
+    ],
+    "Toko 4": [
+      14,
+      5
+    ],
+    "Toko 5": [
+      21,
+      2
+    ],
+    "Toko 6": [
+      29,
+      2
+    ],
+    "Toko 7": [
+      29,
+      9
+    ],
+    "Toko 8": [
+      32,
+      6
+    ],
+    "Toko 9": [
+      35,
+      13
+    ],
+    "Toko 10": [
+      36,
+      1
+    ],
+    "Toko 11": [
+      37,
+      13
+    ],
+    "Simpang1": [
+      35,
+      1
+    ],
+    "Simpang2": [
+      1,
+      3
+    ],
+    "Simpang3": [
+      3,
+      3
+    ],
+    "Simpang4": [
+      5,
+      3
+    ],
+    "Simpang5": [
+      7,
+      3
+    ],
+    "Simpang6": [
+      18,
+      3
+    ],
+    "Simpang7": [
+      19,
+      3
+    ],
+    "Simpang8": [
+      21,
+      3
+    ],
+    "Simpang9": [
+      24,
+      3
+    ],
+    "Simpang10": [
+      28,
+      3
+    ],
+    "Simpang11": [
+      29,
+      3
+    ],
+    "Simpang12": [
+      35,
+      3
+    ],
+    "Simpang13": [
+      35,
+      4
+    ],
+    "Simpang14": [
+      15,
+      5
+    ],
+    "Simpang15": [
+      3,
+      6
+    ],
+    "Simpang16": [
+      19,
+      7
+    ],
+    "Simpang17": [
+      24,
+      7
+    ],
+    "Simpang18": [
+      30,
+      7
+    ],
+    "Simpang19": [
+      32,
+      7
+    ],
+    "Simpang20": [
+      35,
+      7
+    ],
+    "Simpang21": [
+      9,
+      8
+    ],
+    "Simpang22": [
+      12,
+      8
+    ],
+    "Simpang23": [
+      1,
+      9
+    ],
+    "Simpang24": [
+      3,
+      9
+    ],
+    "Simpang25": [
+      30,
+      9
+    ],
+    "Simpang26": [
+      12,
+      10
+    ],
+    "Simpang27": [
+      12,
+      11
+    ],
+    "Simpang28": [
+      19,
+      11
+    ],
+    "Simpang29": [
+      24,
+      11
+    ],
+    "Simpang30": [
+      30,
+      11
+    ],
+    "Simpang31": [
+      5,
+      12
+    ],
+    "Simpang32": [
+      19,
+      14
+    ],
+    "Simpang33": [
+      24,
+      14
+    ],
+    "Simpang34": [
+      27,
+      14
+    ],
+    "Simpang35": [
+      30,
+      14
+    ],
+    "Simpang36": [
+      35,
+      14
+    ],
+    "Simpang37": [
+      36,
+      14
+    ],
+    "Simpang38": [
+      37,
+      14
+    ],
+    "Simpang39": [
+      2,
+      16
+    ],
+    "Simpang40": [
+      5,
+      16
+    ],
+    "Simpang41": [
+      9,
+      16
+    ],
+    "Simpang42": [
+      11,
+      16
+    ],
+    "Simpang43": [
+      14,
+      16
+    ],
+    "Simpang44": [
+      16,
+      16
+    ],
+    "Simpang45": [
+      19,
+      16
+    ],
+    "Simpang46": [
+      36,
+      16
+    ],
+    "Simpang47": [
+      24,
+      17
+    ],
+    "Simpang48": [
+      33,
+      17
+    ],
+    "Simpang49": [
+      36,
+      17
+    ]
+  },
+  "adjacency": {
+    "Rumah 1": [
+      [
+        "Simpang23",
+        1
+      ],
+      [
+        "Simpang24",
+        1
+      ]
+    ],
+    "Rumah 2": [
+      [
+        "Simpang39",
+        1
+      ]
+    ],
+    "Rumah 3": [
+      [
+        "Simpang15",
+        1
+      ]
+    ],
+    "Rumah 4": [
+      [
+        "Simpang41",
+        1
+      ]
+    ],
+    "Rumah 5": [
+      [
+        "Simpang44",
+        1
+      ]
+    ],
+    "Rumah 6": [
+      [
+        "Simpang6",
+        1
+      ]
+    ],
+    "Rumah 7": [
+      [
+        "Simpang16",
+        1
+      ]
+    ],
+    "Rumah 8": [
+      [
+        "Simpang32",
+        1
+      ]
+    ],
+    "Rumah 9": [
+      [
+        "Simpang34",
+        1
+      ]
+    ],
+    "Rumah 10": [
+      [
+        "Simpang10",
+        1
+      ]
+    ],
+    "Rumah 11": [
+      [
+        "Simpang48",
+        1
+      ]
+    ],
+    "Rumah 12": [
+      [
+        "Simpang13",
+        1
+      ]
+    ],
+    "Rumah 13": [
+      [
+        "Simpang46",
+        1
+      ]
+    ],
+    "Toko 1": [
+      [
+        "Simpang4",
+        1
+      ]
+    ],
+    "Toko 2": [
+      [
+        "Simpang26",
+        1
+      ]
+    ],
+    "Toko 3": [
+      [
+        "Simpang42",
+        1
+      ]
+    ],
+    "Toko 4": [
+      [
+        "Simpang14",
+        1
+      ]
+    ],
+    "Toko 5": [
+      [
+        "Simpang8",
+        1
+      ]
+    ],
+    "Toko 6": [
+      [
+        "Simpang11",
+        1
+      ]
+    ],
+    "Toko 7": [
+      [
+        "Simpang25",
+        1
+      ]
+    ],
+    "Toko 8": [
+      [
+        "Simpang19",
+        1
+      ]
+    ],
+    "Toko 9": [
+      [
+        "Simpang36",
+        1
+      ]
+    ],
+    "Toko 10": [
+      [
+        "Simpang1",
+        1
+      ]
+    ],
+    "Toko 11": [
+      [
+        "Simpang38",
+        1
+      ]
+    ],
+    "Simpang1": [
+      [
+        "Toko 10",
+        1
+      ],
+      [
+        "Simpang12",
+        2
+      ]
+    ],
+    "Simpang2": [
+      [
+        "Simpang3",
+        2
+      ],
+      [
+        "Simpang23",
+        6
+      ]
+    ],
+    "Simpang3": [
+      [
+        "Simpang2",
+        2
+      ],
+      [
+        "Simpang4",
+        2
+      ],
+      [
+        "Simpang15",
+        3
+      ]
+    ],
+    "Simpang4": [
+      [
+        "Toko 1",
+        1
+      ],
+      [
+        "Simpang3",
+        2
+      ],
+      [
+        "Simpang5",
+        2
+      ]
+    ],
+    "Simpang5": [
+      [
+        "Simpang4",
+        2
+      ],
+      [
+        "Simpang21",
+        7
+      ]
+    ],
+    "Simpang6": [
+      [
+        "Simpang7",
+        1
+      ],
+      [
+        "Rumah 6",
+        1
+      ],
+      [
+        "Simpang14",
+        5
+      ]
+    ],
+    "Simpang7": [
+      [
+        "Simpang6",
+        1
+      ],
+      [
+        "Simpang8",
+        2
+      ],
+      [
+        "Simpang16",
+        4
+      ]
+    ],
+    "Simpang8": [
+      [
+        "Toko 5",
+        1
+      ],
+      [
+        "Simpang7",
+        2
+      ],
+      [
+        "Simpang9",
+        3
+      ]
+    ],
+    "Simpang9": [
+      [
+        "Simpang8",
+        3
+      ],
+      [
+        "Simpang10",
+        4
+      ],
+      [
+        "Simpang17",
+        4
+      ]
+    ],
+    "Simpang10": [
+      [
+        "Simpang11",
+        1
+      ],
+      [
+        "Rumah 10",
+        1
+      ],
+      [
+        "Simpang9",
+        4
+      ]
+    ],
+    "Simpang11": [
+      [
+        "Simpang10",
+        1
+      ],
+      [
+        "Toko 6",
+        1
+      ],
+      [
+        "Simpang12",
+        6
+      ]
+    ],
+    "Simpang12": [
+      [
+        "Simpang13",
+        1
+      ],
+      [
+        "Simpang1",
+        2
+      ],
+      [
+        "Simpang11",
+        6
+      ]
+    ],
+    "Simpang13": [
+      [
+        "Rumah 12",
+        1
+      ],
+      [
+        "Simpang12",
+        1
+      ],
+      [
+        "Simpang20",
+        3
+      ]
+    ],
+    "Simpang14": [
+      [
+        "Toko 4",
+        1
+      ],
+      [
+        "Simpang6",
+        5
+      ],
+      [
+        "Simpang22",
+        6
+      ]
+    ],
+    "Simpang15": [
+      [
+        "Rumah 3",
+        1
+      ],
+      [
+        "Simpang3",
+        3
+      ],
+      [
+        "Simpang24",
+        3
+      ]
+    ],
+    "Simpang16": [
+      [
+        "Rumah 7",
+        1
+      ],
+      [
+        "Simpang7",
+        4
+      ],
+      [
+        "Simpang28",
+        4
+      ]
+    ],
+    "Simpang17": [
+      [
+        "Simpang9",
+        4
+      ],
+      [
+        "Simpang29",
+        4
+      ],
+      [
+        "Simpang18",
+        6
+      ]
+    ],
+    "Simpang18": [
+      [
+        "Simpang19",
+        2
+      ],
+      [
+        "Simpang25",
+        2
+      ],
+      [
+        "Simpang17",
+        6
+      ]
+    ],
+    "Simpang19": [
+      [
+        "Toko 8",
+        1
+      ],
+      [
+        "Simpang18",
+        2
+      ],
+      [
+        "Simpang20",
+        3
+      ]
+    ],
+    "Simpang20": [
+      [
+        "Simpang19",
+        3
+      ],
+      [
+        "Simpang13",
+        3
+      ],
+      [
+        "Simpang30",
+        9
+      ]
+    ],
+    "Simpang21": [
+      [
+        "Simpang22",
+        3
+      ],
+      [
+        "Simpang5",
+        7
+      ],
+      [
+        "Simpang31",
+        8
+      ]
+    ],
+    "Simpang22": [
+      [
+        "Simpang26",
+        2
+      ],
+      [
+        "Simpang21",
+        3
+      ],
+      [
+        "Simpang14",
+        6
+      ]
+    ],
+    "Simpang23": [
+      [
+        "Rumah 1",
+        1
+      ],
+      [
+        "Simpang2",
+        6
+      ],
+      [
+        "Simpang39",
+        8
+      ]
+    ],
+    "Simpang24": [
+      [
+        "Rumah 1",
+        1
+      ],
+      [
+        "Simpang15",
+        3
+      ],
+      [
+        "Simpang31",
+        5
+      ]
+    ],
+    "Simpang25": [
+      [
+        "Toko 7",
+        1
+      ],
+      [
+        "Simpang18",
+        2
+      ],
+      [
+        "Simpang30",
+        2
+      ]
+    ],
+    "Simpang26": [
+      [
+        "Toko 2",
+        1
+      ],
+      [
+        "Simpang27",
+        1
+      ],
+      [
+        "Simpang22",
+        2
+      ]
+    ],
+    "Simpang27": [
+      [
+        "Simpang26",
+        1
+      ],
+      [
+        "Simpang28",
+        7
+      ],
+      [
+        "Simpang31",
+        8
+      ]
+    ],
+    "Simpang28": [
+      [
+        "Simpang32",
+        3
+      ],
+      [
+        "Simpang16",
+        4
+      ],
+      [
+        "Simpang29",
+        5
+      ],
+      [
+        "Simpang27",
+        7
+      ]
+    ],
+    "Simpang29": [
+      [
+        "Simpang33",
+        3
+      ],
+      [
+        "Simpang17",
+        4
+      ],
+      [
+        "Simpang28",
+        5
+      ]
+    ],
+    "Simpang30": [
+      [
+        "Simpang25",
+        2
+      ],
+      [
+        "Simpang35",
+        3
+      ],
+      [
+        "Simpang20",
+        9
+      ]
+    ],
+    "Simpang31": [
+      [
+        "Simpang40",
+        4
+      ],
+      [
+        "Simpang24",
+        5
+      ],
+      [
+        "Simpang27",
+        8
+      ],
+      [
+        "Simpang21",
+        8
+      ]
+    ],
+    "Simpang32": [
+      [
+        "Rumah 8",
+        1
+      ],
+      [
+        "Simpang45",
+        2
+      ],
+      [
+        "Simpang28",
+        3
+      ]
+    ],
+    "Simpang33": [
+      [
+        "Simpang34",
+        3
+      ],
+      [
+        "Simpang29",
+        3
+      ],
+      [
+        "Simpang47",
+        3
+      ]
+    ],
+    "Simpang34": [
+      [
+        "Rumah 9",
+        1
+      ],
+      [
+        "Simpang33",
+        3
+      ],
+      [
+        "Simpang35",
+        3
+      ]
+    ],
+    "Simpang35": [
+      [
+        "Simpang34",
+        3
+      ],
+      [
+        "Simpang30",
+        3
+      ],
+      [
+        "Simpang36",
+        5
+      ],
+      [
+        "Simpang48",
+        6
+      ]
+    ],
+    "Simpang36": [
+      [
+        "Simpang37",
+        1
+      ],
+      [
+        "Toko 9",
+        1
+      ],
+      [
+        "Simpang35",
+        5
+      ]
+    ],
+    "Simpang37": [
+      [
+        "Simpang36",
+        1
+      ],
+      [
+        "Simpang38",
+        1
+      ],
+      [
+        "Simpang46",
+        2
+      ]
+    ],
+    "Simpang38": [
+      [
+        "Simpang37",
+        1
+      ],
+      [
+        "Toko 11",
+        1
+      ]
+    ],
+    "Simpang39": [
+      [
+        "Rumah 2",
+        1
+      ],
+      [
+        "Simpang40",
+        3
+      ],
+      [
+        "Simpang23",
+        8
+      ]
+    ],
+    "Simpang40": [
+      [
+        "Simpang39",
+        3
+      ],
+      [
+        "Simpang41",
+        4
+      ],
+      [
+        "Simpang31",
+        4
+      ],
+      [
+        "Simpang43",
+        15
+      ]
+    ],
+    "Simpang41": [
+      [
+        "Rumah 4",
+        1
+      ],
+      [
+        "Simpang42",
+        2
+      ],
+      [
+        "Simpang40",
+        4
+      ]
+    ],
+    "Simpang42": [
+      [
+        "Toko 3",
+        1
+      ],
+      [
+        "Simpang41",
+        2
+      ],
+      [
+        "Simpang43",
+        3
+      ]
+    ],
+    "Simpang43": [
+      [
+        "Simpang44",
+        2
+      ],
+      [
+        "Simpang42",
+        3
+      ],
+      [
+        "Simpang40",
+        15
+      ]
+    ],
+    "Simpang44": [
+      [
+        "Rumah 5",
+        1
+      ],
+      [
+        "Simpang43",
+        2
+      ],
+      [
+        "Simpang45",
+        3
+      ]
+    ],
+    "Simpang45": [
+      [
+        "Simpang32",
+        2
+      ],
+      [
+        "Simpang44",
+        3
+      ],
+      [
+        "Simpang47",
+        6
+      ]
+    ],
+    "Simpang46": [
+      [
+        "Rumah 13",
+        1
+      ],
+      [
+        "Simpang49",
+        1
+      ],
+      [
+        "Simpang37",
+        2
+      ]
+    ],
+    "Simpang47": [
+      [
+        "Simpang33",
+        3
+      ],
+      [
+        "Simpang45",
+        6
+      ]
+    ],
+    "Simpang48": [
+      [
+        "Rumah 11",
+        1
+      ],
+      [
+        "Simpang49",
+        3
+      ],
+      [
+        "Simpang35",
+        6
+      ]
+    ],
+    "Simpang49": [
+      [
+        "Simpang46",
+        1
+      ],
+      [
+        "Simpang48",
+        3
+      ]
+    ]
+  }
+}

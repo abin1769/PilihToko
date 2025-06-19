@@ -1,30 +1,59 @@
-{% extends "layout.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-<div class="container mt-6">
-  <h2 class="text-2xl font-bold mb-4">Hasil Rekomendasi Toko</h2>
-  <p class="mb-4">Untuk barang <strong>{{ barang }}</strong> dari <strong>{{ rumah }}</strong>:</p>
+    <h1>Hasil Rekomendasi</h1>
+    <p>Menampilkan 3 rekomendasi toko terbaik untuk membeli <strong>{{ barang }}</strong> dari <strong>{{ rumah }}</strong>.</p>
 
-  {% if rekomendasi %}
-    <div class="space-y-4">
-      {% for nama, info in rekomendasi %}
-        <div class="bg-white shadow-md p-4 rounded-lg border">
-          <h3 class="text-lg font-semibold mb-2">{{ loop.index }}. {{ nama }}</h3>
-          <ul class="text-sm text-gray-700 space-y-1">
-            <li><strong>Skor:</strong> {{ "%.2f"|format(info.skor) }}</li>
-            <li><strong>Jarak:</strong> {{ info.jarak }}</li>
-            <li><strong>Rating:</strong> {{ info.rating }}</li>
-            <li><strong>Stok:</strong> {{ info.stok }}</li>
-            <li><strong>Alasan:</strong> {{ info.alasan }}</li>
-            <li><strong>Jalur:</strong> {{ info.jalur }}</li>
-          </ul>
-        </div>
-      {% endfor %}
+    <div class="results-container">
+        {% if rekomendasi %}
+            {% for nama_toko, data in rekomendasi %}
+            <div class="result-item-card clickable-card"
+                 onclick="toggleRoute(this)"
+                 data-toko-info='{{ data.toko_info_for_js|tojson|safe }}'> {# MENGGUNAKAN toko_info_for_js #}
+                <span class="result-item-rank">{{ loop.index }}</span>
+                <div class="result-item-info">
+                    <h3>{{ nama_toko }}</h3>
+                    <p>
+                        <span class="info-label">Skor Rekomendasi:</span>
+                        <span class="info-value">{{ data.skor }}</span>
+                    </p>
+                    <p>
+                        <span class="info-label">Alasan:</span>
+                        <span>{{ data.alasan }}</span>
+                    </p>
+                    <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 12px 0;">
+                    <p>
+                        <span class="info-label">Jarak:</span>
+                        <span>{{ data.jarak }} langkah</span>
+                    </p>
+                    <p>
+                        <span class="info-label">Rating Toko:</span>
+                        <span>{{ data.rating }} &#9733;</span>
+                    </p>
+                     <p>
+                        <span class="info-label">Stok Tersedia:</span>
+                        <span>{{ data.stok }} unit</span>
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="result-item-card">
+                <h3>Hasil Tidak Ditemukan</h3>
+                <p>Maaf, tidak ada toko yang menjual <strong>{{ barang }}</strong> saat ini.</p>
+            </div>
+        {% endif %}
     </div>
-  {% else %}
-    <p class="text-red-600">Tidak ada toko yang memenuhi kriteria atau stok kosong semua.</p>
-  {% endif %}
 
-  <a href="{{ url_for('home') }}" class="inline-block mt-6 text-blue-600 hover:underline">← Kembali</a>
-</div>
+    <div id="route-visual-wrapper" class="visual-wrapper-hidden">
+        <hr class="separator-line">
+        <h3>Visualisasi Rute</h3>
+        <canvas id="mapCanvas" 
+            data-grid='{{ grid|tojson|safe }}''
+            data-rumah-asal='{{ rumah_asal|tojson|safe }}'
+            data-map-image="{{ map_image_url }}">
+        </canvas>
+    </div>
+
+    <a href="{{ url_for('home') }}" class="button-kembali">Kembali ke Pencarian</a>
 {% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Rute Spesifik</h1>
+    <p>Menampilkan rute terpendek dari <strong>{{ rumah.nama }}</strong> menuju <strong>{{ toko.nama }}</strong>.</p>
+
+    {% if jalur %}
+        <div class="route-layout-container">
+            <!-- Kolom Kiri: Visualisasi Peta -->
+            <div class="route-visual-container">
+                <h3>Visualisasi Peta</h3>
+                <canvas id="mapCanvas" 
+                    data-grid="{{ grid|tojson|safe }}"
+                    data-path="{{ jalur|tojson|safe }}"
+                    data-start-node="{{ rumah.lokasi|tojson|safe }}"
+                    data-end-node="{{ toko.lokasi|tojson|safe }}"
+                    data-map-image="{{ url_for('static', filename='img/denah_peta.png') }}">
+                </canvas>
+            </div>
+
+            <!-- Kolom Kanan: Hanya menampilkan total jarak -->
+            <div class="route-details-container">
+                <div class="result-item-card route-summary-card">
+                    <div class="result-item-info">
+                        <h3>Total Jarak</h3>
+                        <p class="info-value">{{ jarak }} langkah</p>
+                    </div>
+                </div>
+                <!-- Bagian detail koordinat sudah dihapus dari sini -->
+            </div>
+        </div>
+    {% else %}
+        <div class="result-item-card">
+            <h3>Rute Tidak Ditemukan</h3>
+            <p>Maaf, tidak ada rute yang bisa dijangkau dari lokasi yang Anda pilih.</p>
+        </div>
+    {% endif %}
+
+    <a href="{{ url_for('home') }}" class="button-kembali">Kembali ke Pencarian</a>
+    
+    <script src="{{ url_for('static', filename='js/map_visualizer.js') }}"></script>
+{% endblock %}

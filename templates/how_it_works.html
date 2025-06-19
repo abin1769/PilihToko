@@ -1,5 +1,109 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
 {% block content %}
-<h1>{{ title }}</h1>
-<p>Konten belum tersedia. Coming soon!</p>
+    <h1>Cara Kerja Algoritma Dijkstra</h1>
+    <p>Halaman ini akan memvisualisasikan bagaimana Algoritma Dijkstra mencari rute terpendek. Pilih titik awal dan tujuan, lalu klik "Mulai Visualisasi" untuk melihat prosesnya.</p>
+
+    <div class="controls-container">
+        <div>
+            <label for="startNodeSelect">Pilih Titik Awal (Rumah):</label>
+            <select id="startNodeSelect">
+                {% for nama_rumah, lokasi in semua_rumah.items() %}
+                <option value='{{ nama_rumah }}'>{{ nama_rumah }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="endNodeSelect">Pilih Titik Tujuan (Toko):</label>
+            <select id="endNodeSelect">
+                {% for nama_toko, data in semua_toko.items() %}
+                <option value='{{ nama_toko }}'>{{ nama_toko }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button id="startAnimationBtn">Mulai Visualisasi</button>
+    </div>
+
+    <div class="visual-wrapper">
+        <canvas id="dijkstraCanvas" 
+            data-grid='{{ grid|tojson|safe }}'
+            data-map-image="{{ map_image_url }}"
+            data-all-graph-nodes='{{ all_graph_nodes|tojson|safe }}'
+            data-all-graph-adjacency='{{ all_graph_adjacency|tojson|safe }}'>
+        </canvas>
+        <div id="statusText">Pilih titik awal dan tujuan, lalu klik "Mulai Visualisasi".</div>
+    </div>
+
+    <hr class="separator-line">
+
+    <h2>Detail Iterasi Algoritma</h2>
+    <p>Lihat bagaimana algoritma memproses setiap node untuk menemukan jalur terpendek.</p>
+    <div id="dijkstra-steps-table-container" class="table-container">
+        <table id="dijkstraStepsTable">
+            <thead>
+                <tr>
+                    <th rowspan="2">Iterasi</th>
+                    <th rowspan="2">Unvisited (Q)</th>
+                    <th rowspan="2">Visited (S)</th>
+                    <th rowspan="2">Current Node (U)</th>
+                    <th colspan="{{ (semua_rumah|length) + (semua_toko|length) }}">Node State (dist, prev, iter)</th>
+                </tr>
+                <tr>
+                    {# Header dinamis untuk setiap node #}
+                    {% set all_nodes = (semua_rumah.keys()|list) + (semua_toko.keys()|list) %}
+                    {% for node_name in all_nodes|sort %}
+                        <th class="node-header" title="{{ node_name }}">{{ get_node_abbreviation(node_name) }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {# Baris akan diisi oleh JavaScript #}
+            </tbody>
+        </table>
+    </div>
+
+    <hr class="separator-line">
+
+    <h2>Penjelasan Algoritma Dijkstra</h2>
+    <p>Algoritma Dijkstra adalah sebuah algoritma yang digunakan untuk <strong>jalur terpendek</strong> antara dua titik (disebut juga "node" atau "vertex") dalam sebuah graf (jaringan). Algoritma ini bekerja pada graf yang memiliki bobot (jarak, biaya, waktu) pada setiap jalur (disebut juga "edge") dan tidak memiliki bobot negatif.</p>
+
+    <h3>Bagaimana Cara Kerjanya?</h3>
+    <p>Secara sederhana, Dijkstra bekerja seperti ini:</p>
+    <ol>
+        <li>
+            <strong>Inisialisasi:</strong> Algoritma dimulai dari titik awal (node sumber) yang Anda pilih. Jarak ke titik awal disetel menjadi nol, dan jarak ke semua titik lain disetel menjadi tak terhingga. Semua titik dianggap "belum dikunjungi".
+        </li>
+        <li>
+            <strong>Iterasi Berulang:</strong>
+            <ul>
+                <li>Pada setiap langkah (iterasi), algoritma memilih titik "belum dikunjungi" yang memiliki jarak terpendek yang diketahui dari titik awal. Titik ini menjadi "titik saat ini" (Current Node).</li>
+                <li>Titik saat ini kemudian ditandai sebagai "sudah dikunjungi".</li>
+                <li>Algoritma kemudian memeriksa semua tetangga dari titik saat ini. Untuk setiap tetangga, ia menghitung jarak total dari titik awal melalui titik saat ini.</li>
+                <li>Jika jarak baru ini lebih pendek daripada jarak yang sudah diketahui sebelumnya untuk tetangga tersebut, maka jarak tetangga diperbarui, dan titik saat ini dicatat sebagai "titik sebelumnya" (Predecessor) untuk tetangga tersebut.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Pengulangan Hingga Tujuan Ditemukan:</strong> Langkah 2 diulang sampai titik tujuan Anda ditemukan, atau sampai semua titik yang dapat dijangkau dari titik awal sudah dikunjungi.
+        </li>
+    </ol>
+    <p>Dengan proses ini, algoritma Dijkstra secara bertahap "menyebar" dari titik awal, selalu menemukan jalur terpendek ke setiap titik yang dikunjunginya, hingga akhirnya mencapai tujuan dengan jalur terpendek secara keseluruhan.</p>
+
+      <h2>Logika Fuzzy untuk Penentuan Rekomendasi</h2> {# TAMBAHKAN BAGIAN INI #}
+    <p>Selain menemukan rute terpendek menggunakan Algoritma Dijkstra, aplikasi ini juga menggunakan <strong>Logika Fuzzy</strong> untuk menentukan seberapa cocok sebuah toko direkomendasikan kepada pengguna. Logika Fuzzy memungkinkan aplikasi untuk "berpikir" seperti manusia dalam menghadapi informasi yang tidak pasti atau memiliki nilai parsial, seperti "jarak dekat", "rating bagus", atau "stok cukup".</p>
+
+    <p>Daripada menggunakan logika biner (ya/tidak, 0/1), Logika Fuzzy mengubah nilai-nilai input (seperti jarak dalam satuan langkah, rating toko, dan total stok barang) menjadi derajat keanggotaan dalam himpunan fuzzy. Misalnya:</p>
+    <ul>
+        <li><strong>Jarak:</strong> Sebuah toko bisa jadi "sangat dekat", "dekat", "sedang", atau "jauh".</li>
+        <li><strong>Rating:</strong> Sebuah toko bisa memiliki rating "buruk", "biasa", "bagus", atau "sangat bagus".</li>
+        <li><strong>Stok:</strong> Ketersediaan barang bisa dinilai "kurang", "cukup", atau "banyak".</li>
+    </ul>
+    <p>Setelah nilai-nilai input diubah menjadi derajat keanggotaan fuzzy, aplikasi menggunakan seperangkat <strong>aturan fuzzy</strong> (IF-THEN rules) untuk mengevaluasi kombinasi dari faktor-faktor ini. Contoh aturan:</p>
+    <ul>
+        <li><strong>JIKA</strong> jarak <strong>dekat</strong> <strong>DAN</strong> rating <strong>bagus</strong> <strong>DAN</strong> stok <strong>banyak</strong>, <strong>MAKA</strong> rekomendasi <strong>sangat tinggi</strong>.</li>
+        <li><strong>JIKA</strong> jarak <strong>jauh</strong> <strong>ATAU</strong> stok <strong>kurang</strong>, <strong>MAKA</strong> rekomendasi <strong>rendah</strong>.</li>
+    </ul>
+    <p>Hasil dari evaluasi aturan-aturan ini kemudian digabungkan (proses "defuzzifikasi") untuk menghasilkan sebuah <strong>skor rekomendasi akhir</strong> yang mencerminkan tingkat kecocokan toko secara keseluruhan. Skor inilah yang digunakan untuk mengurutkan dan menampilkan toko-toko terbaik kepada Anda.</p>
+    <p>Dengan Logika Fuzzy, aplikasi dapat memberikan rekomendasi yang lebih nuansa dan fleksibel, mempertimbangkan berbagai faktor secara bersamaan untuk membantu Anda menemukan toko yang paling sesuai dengan kebutuhan Anda.</p>
+
+    <script src="{{ url_for('static', filename='js/dijkstra_visualizer.js') }}"></script>
 {% endblock %}

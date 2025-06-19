@@ -1,24 +1,79 @@
-{% extends "base.html" %}
+<!-- Memberitahu Jinja untuk menggunakan base.html sebagai cetakan -->
+{% extends 'base.html' %}
 
+<!-- Semua konten di bawah ini akan dimasukkan ke dalam blok 'content' di base.html -->
 {% block content %}
-<h1>Rekomendasi Pasar Terdekat</h1>
 
-<form method="POST" action="{{ url_for('rekomendasi') }}" class="recommend-form">
-    <label for="rumah">Pilih Rumah:</label>
-    <select id="rumah" name="rumah" required>
-        {% for nama_rumah in rumah_list %}
-        <option value="{{ nama_rumah }}">{{ nama_rumah }}</option>
-        {% endfor %}
-    </select>
+<h1>Pencarian Toko Sembako</h1>
+<p>Pilih mode pencarian yang Anda inginkan di bawah ini.</p>
 
-    <label for="barang">Barang yang Dicari:</label>
-    <select id="barang" name="barang" required>
-        {% for barang in barang_list %}
-        <option value="{{ barang }}">{{ barang }}</option>
-        {% endfor %}
-    </select>
+<div class="tab-container">
+    <div class="tab-link active" onclick="openTab(event, 'mode1')">Rekomendasi Barang</div>
+    <div class="tab-link" onclick="openTab(event, 'mode2')">Toko Terdekat</div>
+    <div class="tab-link" onclick="openTab(event, 'mode3')">Rute Spesifik</div>
+</div>
 
-    <button type="submit">Cari Rekomendasi</button>
-    <footer>© 2025 PilihToko. Dibuat oleh Shafwan Abhinaya</footer>
+<form action="/rekomendasi" method="post" class="main-form">
+    <input type="hidden" id="mode_pencarian" name="mode_pencarian" value="rekomendasi_barang">
+
+    <div id="mode1" class="tab-content active">
+        <h3>Cari Rekomendasi Berdasarkan Barang</h3>
+        <label for="rumah_mode1">Pilih Rumah Anda:</label>
+        <select name="rumah_mode1">
+            {% for rumah in rumah_list %} <option value="{{ rumah }}">{{ rumah }}</option> {% endfor %}
+        </select>
+        <label for="barang">Pilih Barang:</label>
+        <select name="barang">
+            {% for barang_item in barang_list %} <option value="{{ barang_item }}">{{ barang_item.capitalize() }}</option> {% endfor %}
+        </select>
+    </div>
+
+    <div id="mode2" class="tab-content">
+        <h3>Cari Toko Terdekat dari Rumah</h3>
+        <label for="rumah_mode2">Pilih Rumah Anda:</label>
+        <select name="rumah_mode2">
+            {% for rumah in rumah_list %} <option value="{{ rumah }}">{{ rumah }}</option> {% endfor %}
+        </select>
+    </div>
+
+    <div id="mode3" class="tab-content">
+        <h3>Cari Rute dari Rumah ke Toko</h3>
+        <label for="rumah_mode3">Pilih Rumah Anda:</label>
+        <select name="rumah_mode3">
+            {% for rumah in rumah_list %} <option value="{{ rumah }}">{{ rumah }}</option> {% endfor %}
+        </select>
+        <label for="toko">Pilih Toko Tujuan:</label>
+        <select name="toko">
+            {% for nama_toko in toko.keys() %} <option value="{{ nama_toko }}">{{ nama_toko }}</option> {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit">Cari</button>
 </form>
+
+<script>
+function openTab(evt, modeName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tab-link");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(modeName).style.display = "block";
+    evt.currentTarget.className += " active";
+    
+    const modeMap = {
+        'mode1': 'rekomendasi_barang',
+        'mode2': 'toko_terdekat',
+        'mode3': 'rute_spesifik'
+    };
+    document.getElementById('mode_pencarian').value = modeMap[modeName];
+}
+// Set tab default untuk aktif saat halaman dimuat
+document.querySelector('.tab-link.active').click();
+</script>
+
 {% endblock %}

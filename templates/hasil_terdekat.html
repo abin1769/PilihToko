@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Toko Terdekat</h1>
+    <p>Menampilkan semua toko dari <strong>{{ rumah_asal.nama }}</strong>. Klik salah satu toko untuk melihat rutenya.</p>
+
+    <div class="results-container">
+        {% if toko_list %}
+            {% for toko_item in toko_list %}
+            <div class="result-item-card clickable-card" 
+                 onclick="toggleRoute(this)" {# MENGGUNAKAN toggleRoute #}
+                 data-toko-info='{{ toko_item.toko_info_for_js|tojson|safe }}'> {# MENGGUNAKAN toko_info_for_js #}
+                
+                <span class="result-item-rank">{{ loop.index }}</span>
+                <div class="result-item-info">
+                    <h3>{{ toko_item.nama }}</h3>
+                    <p>
+                        <span class="info-label">Jarak:</span>
+                        <span class="info-value">{{ toko_item.jarak }} langkah</span>
+                    </p>
+                    <p>
+                        <span class="info-label">Rating:</span>
+                        <span class="info-value">{{ toko_item.rating }} &#9733;</span>
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="result-item-card">
+                <p>Maaf, tidak ada toko yang dapat dijangkau dari lokasi ini.</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <div id="route-visual-wrapper" class="visual-wrapper-hidden">
+        <hr class="separator-line">
+        <h3>Visualisasi Rute ke <span id="toko-tujuan-nama"></span></h3>
+        <canvas id="mapCanvas" 
+            data-grid='{{ grid|tojson|safe }}'
+            data-rumah-asal='{{ rumah_asal|tojson|safe }}'
+            data-map-image="{{ map_image_url }}">
+        </canvas>
+    </div>
+
+    <a href="{{ url_for('home') }}" class="button-kembali">Kembali ke Pencarian</a>
+{% endblock %}

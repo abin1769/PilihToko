@@ -69,15 +69,27 @@ def hitung_kecocokan(jarak, rating, stok_total):
     stok_fz = fuzzify_stok(stok_total)
 
     rules = [
+        # === PRIORITAS 1: Jarak DEKAT (Bobot 0.8 - 1.0) ===
+        # Toko ideal, jarak dekat, rating tinggi, stok banyak. Skor tertinggi.
         (min(jarak_fz["dekat"], rating_fz["tinggi"], stok_fz["banyak"]), 1.0, "Jarak dekat, rating tinggi, stok banyak"),
+        # Jarak dekat, tapi mungkin rating/stoknya sedang. Tetap sangat direkomendasikan.
         (min(jarak_fz["dekat"], rating_fz["sedang"], stok_fz["sedang"]), 0.9, "Jarak dekat, rating sedang, stok sedang"),
-        (min(jarak_fz["sedang"], rating_fz["tinggi"], stok_fz["banyak"]), 0.6, "Jarak sedang, rating tinggi, stok banyak"),
-        (min(jarak_fz["dekat"], rating_fz["rendah"], stok_fz["sedikit"]), 0.3, "Jarak dekat, rating rendah, stok sedikit"),
-        (min(jarak_fz["jauh"], rating_fz["tinggi"], stok_fz["banyak"]), 0.1, "Jarak jauh, rating tinggi, stok banyak"),
-        (min(jarak_fz["sedang"], rating_fz["sedang"], stok_fz["sedang"]), 0.4, "Jarak sedang, rating sedang, stok sedang"),
-        (min(jarak_fz["jauh"], rating_fz["sedang"], stok_fz["banyak"]), 0.05, "Jarak jauh, rating sedang, stok banyak"),
-        (min(jarak_fz["jauh"], rating_fz["rendah"], stok_fz["sedikit"]), 0.0, "Jarak jauh, rating rendah, stok sedikit"),
+        # Jarak dekat, walau rating/stoknya sedikit. Bobotnya kita naikkan dari 0.3 jadi 0.8 biar tetap jadi pilihan utama.
+        (min(jarak_fz["dekat"], rating_fz["rendah"], stok_fz["sedikit"]), 0.8, "Jarak dekat, walau rating/stok kurang"),
+
+        # === PRIORITAS 2: Jarak SEDANG (Bobot 0.5 - 0.7) ===
+        # Jarak sedang hanya akan direkomendasikan jika rating dan stoknya bagus.
+        (min(jarak_fz["sedang"], rating_fz["tinggi"], stok_fz["banyak"]), 0.7, "Jarak sedang, rating & stok bagus"),
+        (min(jarak_fz["sedang"], rating_fz["sedang"], stok_fz["sedang"]), 0.5, "Jarak sedang, rating & stok cukup"),
+
+        # === PRIORITAS 3: Jarak JAUH (Bobot < 0.3, kita penalti) ===
+        # Toko jauh hanya akan muncul jika SEMPURNA dan tidak ada pilihan lain yang lebih baik.
+        (min(jarak_fz["jauh"], rating_fz["tinggi"], stok_fz["banyak"]), 0.2, "Jarak jauh, tapi rating & stok sempurna"),
+        # Aturan lain untuk jarak jauh kita beri skor sangat rendah atau nol.
+        (min(jarak_fz["jauh"], rating_fz["sedang"], stok_fz["banyak"]), 0.1, "Jarak jauh, rating sedang, stok banyak"),
+        (min(jarak_fz["jauh"], rating_fz["rendah"], stok_fz["sedikit"]), 0.0, "Jarak jauh, rating & stok kurang"),
     ]
+
 
     skor_tertinggi, bobot, alasan = max(rules, key=lambda x: x[0]*x[1])
 
