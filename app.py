@@ -416,4 +416,4 @@ def get_dijkstra_steps():
 def about_app():
     return render_template('info.html', title="Tentang Aplikasi")
 
-    if __name__ == '__main__':
+if __name__ == '__main__':
