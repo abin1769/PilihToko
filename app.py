@@ -417,4 +417,3 @@ def about_app():
     return render_template('info.html', title="Tentang Aplikasi")
 
 if __name__ == '__main__':
-    app.run(debug=True)
